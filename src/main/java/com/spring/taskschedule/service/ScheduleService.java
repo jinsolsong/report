@@ -4,7 +4,7 @@ package com.spring.taskschedule.service;
 import com.spring.taskschedule.dto.ScheduleResponseDto;
 import com.spring.taskschedule.entity.ScheduleEntity;
 import com.spring.taskschedule.entity.User;
-import com.spring.taskschedule.repository.ScheduleRepository2;
+import com.spring.taskschedule.repository.ScheduleRepository;
 import com.spring.taskschedule.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,10 +13,10 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ScheduleService2 {
+public class ScheduleService {
 
     private final UserRepository userRepository;
-    private final ScheduleRepository2 scheduleRepository2;
+    private final ScheduleRepository scheduleRepository2;
 
     public ScheduleResponseDto save(Long userId, String title, String todo){
 

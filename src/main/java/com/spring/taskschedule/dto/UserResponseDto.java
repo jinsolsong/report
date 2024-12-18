@@ -28,7 +28,6 @@ public class UserResponseDto {
     }
 
 
-
     public static UserResponseDto toDto(User user){
 
         String createDate = createdDate(user.getCreatedDate());

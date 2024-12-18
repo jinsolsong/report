@@ -2,7 +2,7 @@ package com.spring.taskschedule.controller;
 
 import com.spring.taskschedule.dto.CreateScheduleRequestDto;
 import com.spring.taskschedule.dto.ScheduleResponseDto;
-import com.spring.taskschedule.service.ScheduleService2;
+import com.spring.taskschedule.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/schedules2")
 @RequiredArgsConstructor
-public class ScheduleController2 {
+public class ScheduleController {
 
-    private final ScheduleService2 scheduleService2;
+    private final ScheduleService scheduleService2;
 
     @PostMapping
     public ResponseEntity<ScheduleResponseDto> save(@RequestBody CreateScheduleRequestDto dto){

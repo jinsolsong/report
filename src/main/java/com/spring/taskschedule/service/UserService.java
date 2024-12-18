@@ -80,10 +80,11 @@ public class UserService {
 
     public UserResponseDto login(String username, String password){
 
+
         Optional<User> optionalUser = userRepository.findIdByUsernameAndPassword(username, password);
 
         if (optionalUser.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist username and password");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "아이디 또는 비밀번호를 확인하세요");
         }
         User findUser = optionalUser.get();
 

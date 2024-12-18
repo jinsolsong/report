@@ -1,6 +1,5 @@
 package com.spring.taskschedule.entity;
 
-import com.spring.taskschedule.lv1.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "user")
 
-public class User extends BaseEntity {
+public class User extends BaseEntity{
 
     //아이디 이름 이메일 패스워드
     @Id
