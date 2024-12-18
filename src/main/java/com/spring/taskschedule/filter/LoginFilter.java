@@ -14,7 +14,7 @@ public class LoginFilter implements Filter {
 
     //인증 하지 않아도 될 URL 배열
     private static final String[] WHITE_LIST =
-            {"/", "/users/signup", "/login", "/session-login","/session-home"};
+            {"/", "/users/signup", "/login", "/session-login","/session-logout", "/session-home"};
 
     @Override
     public void doFilter(

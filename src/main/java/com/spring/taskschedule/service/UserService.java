@@ -78,18 +78,32 @@ public class UserService {
 
     }
 
-    public UserResponseDto login(String username, String password){
+//    public UserResponseDto login(String username, String password){
+//
+//
+//        Optional<User> optionalUser = userRepository.findIdByUsernameAndPassword(username, password);
+//
+//        if (optionalUser.isEmpty()){
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist username and password");
+//        }
+//        User findUser = optionalUser.get();
+//
+//        return UserResponseDto.toDto(findUser);
+//    }
 
 
-        Optional<User> optionalUser = userRepository.findIdByUsernameAndPassword(username, password);
+    public UserResponseDto login(String eMail, String password){
 
-        if (optionalUser.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "아이디 또는 비밀번호를 확인하세요");
-        }
-        User findUser = optionalUser.get();
 
-        return UserResponseDto.toDto(findUser);
+    Optional<User> optionalUser = userRepository.findUserByEMailAndPassword(eMail, password);
+
+    if (optionalUser.isEmpty()){
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist email and password");
     }
+    User findUser = optionalUser.get();
+
+    return UserResponseDto.toDto(findUser);
+}
 
 
 }

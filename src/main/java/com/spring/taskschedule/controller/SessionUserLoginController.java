@@ -21,16 +21,18 @@ public class SessionUserLoginController {
 
     @PostMapping("/session-login")
     public ResponseEntity<String> login(
+
             @Valid @ModelAttribute UserRequestDto dto,
+
             HttpServletRequest request
             ){
-        UserResponseDto responseDto = userService.login(dto.getUsername(), dto.getPassword());
+        UserResponseDto responseDto = userService.login(dto.getEMail(), dto.getPassword());
 
         Long userId = responseDto.getId();
         //실패시 예외처리
-        if(userId == null){
-            return new ResponseEntity<>("로그인 실패(아이디와 비밀번호를 확인하세요)", HttpStatus.UNAUTHORIZED);
-        }
+//        if(userId == null){
+//            return new ResponseEntity<>("로그인 실패(아이디와 비밀번호를 확인하세요)", HttpStatus.UNAUTHORIZED);
+//        }
 
         // 로그인 성공시 로직
         // 세션의 Defalt Value 는 true
@@ -49,6 +51,7 @@ public class SessionUserLoginController {
         return new ResponseEntity<>("로그인 되었습니다. ", HttpStatus.OK);
     }
 
+
     @PostMapping("/session-logout")
     public ResponseEntity<String> logout(HttpServletRequest request){
 
@@ -56,6 +59,7 @@ public class SessionUserLoginController {
         //true로 설정이 된다면,
         // 리퀘스트 객체 내에 세션이 존재한다면 기존 세션을 반환
         // 리퀘스트 객체 내에 세션이 없으면 새로운 세션을 생성해서 반환
+
         HttpSession session = request.getSession(false);
 
         //세션이 존재한다면 >> 로그인이 된경우

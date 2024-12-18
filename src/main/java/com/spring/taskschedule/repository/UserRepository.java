@@ -14,13 +14,17 @@ public interface UserRepository extends JpaRepository<User, Long> {
     }
 
 
+//    Optional<User> findIdByUsernameAndPassword(String username, String password);
+//
+//    default User findUserByUsernameOrElseThrow(String username, String password){
+//        return findIdByUsernameAndPassword(username, password).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist username and password= "+username +"/"+password));
+//    }
 
-    Optional<User> findIdByUsernameAndPassword(String username, String password);
+    Optional<User> findUserByEMailAndPassword(String eMail, String password);
 
-    default User findUserByUsernameOrElseThrow(String username, String password){
-        return findIdByUsernameAndPassword(username, password).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist username and password= "+username +"/"+password));
+    default User findUserByEmailOrElseThrow(String eMail, String password){
+        return findUserByEMailAndPassword(eMail, password).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist email and password = "+ eMail + password));
     }
-
 
 
 
