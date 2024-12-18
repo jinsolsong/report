@@ -1,4 +1,4 @@
-package com.spring.taskschedule.lv2_3.entity;
+package com.spring.taskschedule.entity;
 
 import com.spring.taskschedule.lv1.entity.BaseEntity;
 import jakarta.persistence.*;

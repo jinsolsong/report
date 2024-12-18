@@ -1,4 +1,4 @@
-package com.spring.taskschedule.lv2_3.entity;
+package com.spring.taskschedule.entity;
 
 
 import jakarta.persistence.*;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name = "schedule2")
-public class ScheduleEntity extends BaseEntity{
+public class ScheduleEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

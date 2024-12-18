@@ -1,9 +1,9 @@
-package com.spring.taskschedule.lv2_3.service;
+package com.spring.taskschedule.service;
 
 
-import com.spring.taskschedule.lv2_3.dto.UserResponseDto;
-import com.spring.taskschedule.lv2_3.entity.User;
-import com.spring.taskschedule.lv2_3.repository.UserRepository;
+import com.spring.taskschedule.dto.UserResponseDto;
+import com.spring.taskschedule.entity.User;
+import com.spring.taskschedule.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -78,5 +78,22 @@ public class UserService {
 
     }
 
+    public UserResponseDto login(String username, String password){
+
+        Optional<User> optionalUser = userRepository.findIdByUsernameAndPassword(username, password);
+
+        if (optionalUser.isEmpty()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist username and password");
+        }
+        User findUser = optionalUser.get();
+
+        return UserResponseDto.toDto(findUser);
+    }
+
 
 }
+
+
+
+
+

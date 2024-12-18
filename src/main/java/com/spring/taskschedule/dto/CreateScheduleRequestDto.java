@@ -1,4 +1,4 @@
-package com.spring.taskschedule.lv2_3.dto;
+package com.spring.taskschedule.dto;
 
 import lombok.Getter;
 

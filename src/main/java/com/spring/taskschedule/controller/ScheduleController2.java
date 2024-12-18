@@ -1,8 +1,8 @@
-package com.spring.taskschedule.lv2_3.controller;
+package com.spring.taskschedule.controller;
 
-import com.spring.taskschedule.lv2_3.dto.CreateScheduleRequestDto;
-import com.spring.taskschedule.lv2_3.dto.ScheduleResponseDto;
-import com.spring.taskschedule.lv2_3.service.ScheduleService2;
+import com.spring.taskschedule.dto.CreateScheduleRequestDto;
+import com.spring.taskschedule.dto.ScheduleResponseDto;
+import com.spring.taskschedule.service.ScheduleService2;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/schedules2")
 @RequiredArgsConstructor
-public class ScheduleController {
+public class ScheduleController2 {
 
     private final ScheduleService2 scheduleService2;
 

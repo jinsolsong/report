@@ -1,8 +1,8 @@
-package com.spring.taskschedule.lv2_3.controller;
+package com.spring.taskschedule.controller;
 
-import com.spring.taskschedule.lv2_3.dto.UserRequestDto;
-import com.spring.taskschedule.lv2_3.dto.UserResponseDto;
-import com.spring.taskschedule.lv2_3.service.UserService;
+import com.spring.taskschedule.dto.UserRequestDto;
+import com.spring.taskschedule.dto.UserResponseDto;
+import com.spring.taskschedule.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

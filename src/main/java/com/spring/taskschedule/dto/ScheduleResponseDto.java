@@ -1,6 +1,6 @@
-package com.spring.taskschedule.lv2_3.dto;
+package com.spring.taskschedule.dto;
 
-import com.spring.taskschedule.lv2_3.entity.ScheduleEntity;
+import com.spring.taskschedule.entity.ScheduleEntity;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

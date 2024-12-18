@@ -1,4 +1,4 @@
-package com.spring.taskschedule.lv2_3.entity;
+package com.spring.taskschedule.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

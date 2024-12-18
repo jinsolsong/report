@@ -1,11 +1,11 @@
-package com.spring.taskschedule.lv2_3.service;
+package com.spring.taskschedule.service;
 
 
-import com.spring.taskschedule.lv2_3.dto.ScheduleResponseDto;
-import com.spring.taskschedule.lv2_3.entity.ScheduleEntity;
-import com.spring.taskschedule.lv2_3.entity.User;
-import com.spring.taskschedule.lv2_3.repository.ScheduleRepository2;
-import com.spring.taskschedule.lv2_3.repository.UserRepository;
+import com.spring.taskschedule.dto.ScheduleResponseDto;
+import com.spring.taskschedule.entity.ScheduleEntity;
+import com.spring.taskschedule.entity.User;
+import com.spring.taskschedule.repository.ScheduleRepository2;
+import com.spring.taskschedule.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

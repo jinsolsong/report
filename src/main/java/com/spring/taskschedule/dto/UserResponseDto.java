@@ -1,6 +1,6 @@
-package com.spring.taskschedule.lv2_3.dto;
+package com.spring.taskschedule.dto;
 
-import com.spring.taskschedule.lv2_3.entity.User;
+import com.spring.taskschedule.entity.User;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -26,6 +26,8 @@ public class UserResponseDto {
         this.eMail = eMail;
         this.createdDate = createdDate;
     }
+
+
 
     public static UserResponseDto toDto(User user){
 

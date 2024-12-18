@@ -1,6 +1,6 @@
-package com.spring.taskschedule.lv2_3.repository;
+package com.spring.taskschedule.repository;
 
-import com.spring.taskschedule.lv2_3.entity.ScheduleEntity;
+import com.spring.taskschedule.entity.ScheduleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
