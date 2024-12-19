@@ -98,13 +98,19 @@ public class UserService {
     Optional<User> optionalUser = userRepository.findUserByEMailAndPassword(eMail, password);
 
     if (optionalUser.isEmpty()){
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist email and password");
+        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Does not exist email and password");
     }
     User findUser = optionalUser.get();
 
     return UserResponseDto.toDto(findUser);
 }
 
+    //서버 설정(애플리케이션파일)server.error.include-stacktrace=never
+
+
+    //익셉션핸들러(오류났을때 반환값을 마음대로 컨트롤할 수 있음)(공부좀해야됨)
+    //예외발생을 잡아서 응답값을 재정의 할 수 있음
+    //적용되는 범위가 있음
 
 }
 

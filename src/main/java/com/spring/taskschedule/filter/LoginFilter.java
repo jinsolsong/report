@@ -35,7 +35,9 @@ public class LoginFilter implements Filter {
                 HttpSession session = httpRequest.getSession(false);
 
                 if(session == null || session.getAttribute("LOGIN_USER")==null){
-                    httpResponse.sendRedirect("/login");
+
+                    httpResponse.sendRedirect("/login"); //로그인이 되지않았다는 예외처리 응답 //힌트 : 예외던지면 400안뜰거임 서버뜰거임
+
                     return;
                 }
 
