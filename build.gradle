@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final'
+//    implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final' 충돌조심 밸리데이션이랑 << 의존성끼리도 충돌이 많이 일어남
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -34,6 +34,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
 }
 
 tasks.named('test') {

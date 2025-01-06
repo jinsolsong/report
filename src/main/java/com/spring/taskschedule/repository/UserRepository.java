@@ -1,16 +1,15 @@
 package com.spring.taskschedule.repository;
 
 import com.spring.taskschedule.entity.User;
+import com.spring.taskschedule.exception.IdNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
     default User findByIdOrElseThrow(Long id){
-        return findById(id).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist id =" + id));
+        return findById(id).orElseThrow(()->new IdNotFoundException("아이디를 확인해주세요"));
     }
 
 
@@ -22,9 +21,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findUserByEMailAndPassword(String eMail, String password);
 
-    default User findUserByEmailOrElseThrow(String eMail, String password){
-        return findUserByEMailAndPassword(eMail, password).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist email and password = "+ eMail + password));
-    }
+//    default User findUserByEmailOrElseThrow(String eMail, String password){
+//        return findUserByEMailAndPassword(eMail, password).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist email and password = "+ eMail + password));
+//    }
 
 
 

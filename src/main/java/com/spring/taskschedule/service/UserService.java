@@ -3,17 +3,20 @@ package com.spring.taskschedule.service;
 
 import com.spring.taskschedule.dto.UserResponseDto;
 import com.spring.taskschedule.entity.User;
+import com.spring.taskschedule.exception.IdAndPasswordMismatchException;
+import com.spring.taskschedule.exception.IdNotFoundException;
+import com.spring.taskschedule.exception.PasswordMismatchException;
 import com.spring.taskschedule.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class UserService {
 
     private final UserRepository userRepository;
@@ -39,7 +42,7 @@ public class UserService {
         Optional<User> optionalUser = userRepository.findById(id);
 
         if (optionalUser.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist id = " + id);
+            throw new IdNotFoundException("아이디를 확인해주세요");
         }
 
         User findUser = optionalUser.get();
@@ -53,7 +56,7 @@ public class UserService {
         User findUser = userRepository.findByIdOrElseThrow(id);
 
         if(!findUser.getPassword().equals(password)){
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "비밀번호가 일치하지 않습니다. ");
+            throw new PasswordMismatchException("비밀번호가 일치하지 않습니다");
         }
 
         findUser.setUsername(username);
@@ -71,7 +74,7 @@ public class UserService {
         User findUser = userRepository.findById(id).orElse(null);
 
         if(findUser == null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new IdNotFoundException("아이디를 확인해주세요");
         }
 
         userRepository.delete(findUser);
@@ -98,7 +101,7 @@ public class UserService {
     Optional<User> optionalUser = userRepository.findUserByEMailAndPassword(eMail, password);
 
     if (optionalUser.isEmpty()){
-        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Does not exist email and password");
+        throw new IdAndPasswordMismatchException("아이디 또는 패스워드를 확인하세요");
     }
     User findUser = optionalUser.get();
 

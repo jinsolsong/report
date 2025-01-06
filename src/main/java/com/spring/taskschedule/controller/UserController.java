@@ -3,6 +3,7 @@ package com.spring.taskschedule.controller;
 import com.spring.taskschedule.dto.UserRequestDto;
 import com.spring.taskschedule.dto.UserResponseDto;
 import com.spring.taskschedule.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,9 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<UserResponseDto> signUp (@RequestBody UserRequestDto dto){
+    public ResponseEntity<UserResponseDto> signUp (@Valid @RequestBody UserRequestDto dto){
+//Valid는 꼭 bindingResult랑 같이 써야함 ** 매개변수 인자에서만 없어진거지 사실상 사용하고 있음
+
         UserResponseDto userResponseDto =
                 userService.signUp(
                         dto.getUsername(),

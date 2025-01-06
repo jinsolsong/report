@@ -24,7 +24,7 @@ public class ScheduleService {
 
         ScheduleEntity scheduleEntity = new ScheduleEntity(title, todo);
 
-        scheduleEntity.setUser(findUser);
+//        scheduleEntity.setUser(findUser);
 
         scheduleRepository2.save(scheduleEntity);
 
